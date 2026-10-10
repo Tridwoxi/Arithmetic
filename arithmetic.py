@@ -4,7 +4,7 @@ does this change with model and reasoning effort?"""
 from pathlib import Path
 from random import randint, seed
 
-from openai import OpenAI
+from openai import OpenAI  # Version 3.28.0, installed 2026-10-10.
 from openai.types import ReasoningEffort, ResponsesModel
 
 ## Configuration
