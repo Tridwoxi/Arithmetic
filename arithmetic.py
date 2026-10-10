@@ -61,7 +61,7 @@ with RESULTS.open("a") as file:
                     )
                     output_text = response.output_text
                     tokens = (
-                        0 if response.usage is None else response.usage.output_tokens
+                        -1 if response.usage is None else response.usage.output_tokens
                     )
                     verdict = is_correct(output_text, ground_truth)
                     report = f"""MODEL: {model}
