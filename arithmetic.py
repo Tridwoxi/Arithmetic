@@ -21,7 +21,7 @@ MODELS: list[tuple[ResponsesModel, ReasoningEffort]] = [
 DIGITS_PROGRESSION = [1, 2, 4, 8, 16, 32, 64]
 TRIALS = 10
 
-RESULTS = Path(__file__).parent / "results.txt"
+ROOT = Path(__file__).parent
 
 ## Setup
 
@@ -43,28 +43,25 @@ def is_correct(response: str, ground_truth: int) -> bool:
 
 ## Experiment
 
-with RESULTS.open("a") as file:
-    for operator in ["plus", "times"]:
-        for num_digits in DIGITS_PROGRESSION:
-            for trial in range(TRIALS):
+for operator in ["plus", "times"]:
+    for num_digits in DIGITS_PROGRESSION:
+        for trial in range(TRIALS):
 
-                a = generate_n_digit_number(num_digits)
-                b = generate_n_digit_number(num_digits)
-                prompt = f"calculate {a} {operator} {b}"
-                ground_truth = a + b if operator == "plus" else a * b
+            a = generate_n_digit_number(num_digits)
+            b = generate_n_digit_number(num_digits)
+            prompt = f"calculate {a} {operator} {b}"
+            ground_truth = a + b if operator == "plus" else a * b
 
-                for model, effort in MODELS:
-                    response = client.responses.create(
-                        model=model,
-                        input=prompt,
-                        reasoning={"effort": effort},
-                    )
-                    output_text = response.output_text
-                    tokens = (
-                        -1 if response.usage is None else response.usage.output_tokens
-                    )
-                    verdict = is_correct(output_text, ground_truth)
-                    report = f"""MODEL: {model}
+            for model, effort in MODELS:
+                response = client.responses.create(
+                    model=model,
+                    input=prompt,
+                    reasoning={"effort": effort},
+                )
+                output_text = response.output_text
+                tokens = -1 if response.usage is None else response.usage.output_tokens
+                verdict = is_correct(output_text, ground_truth)
+                report = f"""MODEL: {model}
 EFFORT: {effort}
 PROMPT: {prompt}
 OUTPUT_TEXT: {output_text}
@@ -72,5 +69,7 @@ VERDICT: {verdict}
 TOKENS: {tokens}
 {"=" * 80}
 """
+                path = (ROOT / model).with_suffix(".txt")
+                with path.open("a") as file:
                     file.write(report)
-                    print(report)
+                print(report)
