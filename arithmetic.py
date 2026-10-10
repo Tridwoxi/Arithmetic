@@ -70,6 +70,7 @@ PROMPT: {prompt}
 OUTPUT_TEXT: {output_text}
 VERDICT: {verdict}
 TOKENS: {tokens}
-                    """
+{"=" * 80}
+"""
                     file.write(report)
                     print(report)
