@@ -60,12 +60,16 @@ with RESULTS.open("a") as file:
                         reasoning={"effort": effort},
                     )
                     output_text = response.output_text
+                    tokens = (
+                        0 if response.usage is None else response.usage.output_tokens
+                    )
                     verdict = is_correct(output_text, ground_truth)
                     report = f"""MODEL: {model}
 EFFORT: {effort}
 PROMPT: {prompt}
 OUTPUT_TEXT: {output_text}
 VERDICT: {verdict}
+TOKENS: {tokens}
                     """
                     file.write(report)
                     print(report)
