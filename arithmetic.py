@@ -71,7 +71,7 @@ VERDICT: {verdict}
 TOKENS: {tokens}
 {"=" * 80}
 """
-                path = (ROOT / model).with_suffix(".txt")
+                path = (ROOT / (model + "-" + str(effort).lower())).with_suffix(".txt")
                 with path.open("a") as file:
                     file.write(report)
                 print(report, end="")
