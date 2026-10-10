@@ -72,4 +72,4 @@ TOKENS: {tokens}
                 path = (ROOT / model).with_suffix(".txt")
                 with path.open("a") as file:
                     file.write(report)
-                print(report)
+                print(report, end="")
