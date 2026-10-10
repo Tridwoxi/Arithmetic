@@ -25,7 +25,9 @@ ROOT = Path(__file__).parent
 
 ## Setup
 
-client = OpenAI()
+# Luna with max reasoning can take more than 10 minutes to respond.
+client = OpenAI(timeout=3600, max_retries=0)
+
 seed("arithmetic")
 
 
