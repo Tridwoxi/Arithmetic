@@ -529,6 +529,13 @@ TOKENS: 31
 ================================================================================
 MODEL: gpt-6-luna
 EFFORT: max
+PROMPT: calculate 6 times 7
+OUTPUT_TEXT: 42
+VERDICT: True
+TOKENS: 24
+================================================================================
+MODEL: gpt-6-luna
+EFFORT: max
 PROMPT: calculate 4 times 1
 OUTPUT_TEXT: 4 times 1 is 4.
 VERDICT: True

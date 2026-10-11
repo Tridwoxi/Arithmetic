@@ -526,6 +526,13 @@ TOKENS: 426
 ================================================================================
 MODEL: gpt-5-nano-2025-08-07
 EFFORT: high
+PROMPT: calculate 6 times 7
+OUTPUT_TEXT: 6 × 7 = 42.
+VERDICT: True
+TOKENS: 279
+================================================================================
+MODEL: gpt-5-nano-2025-08-07
+EFFORT: high
 PROMPT: calculate 4 times 1
 OUTPUT_TEXT: 4 — because 4 × 1 = 4.
 VERDICT: True

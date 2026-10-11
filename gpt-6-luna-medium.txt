@@ -533,6 +533,13 @@ TOKENS: 29
 ================================================================================
 MODEL: gpt-6-luna
 EFFORT: medium
+PROMPT: calculate 6 times 7
+OUTPUT_TEXT: 42
+VERDICT: True
+TOKENS: 16
+================================================================================
+MODEL: gpt-6-luna
+EFFORT: medium
 PROMPT: calculate 4 times 1
 OUTPUT_TEXT: 4
 VERDICT: True

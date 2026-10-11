@@ -1635,6 +1635,13 @@ TOKENS: 19
 ================================================================================
 MODEL: gpt-5-nano-2025-08-07
 EFFORT: minimal
+PROMPT: calculate 6 times 7
+OUTPUT_TEXT: 42
+VERDICT: True
+TOKENS: 19
+================================================================================
+MODEL: gpt-5-nano-2025-08-07
+EFFORT: minimal
 PROMPT: calculate 4 times 1
 OUTPUT_TEXT: 4
 VERDICT: True
